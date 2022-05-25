@@ -8,6 +8,17 @@ function App() {
 
   const [searchValue , setSearchValue] = useState('');
 
+  // let orderedData = listingsData.sort(function(a, b){
+  //   let nameA = a.location.toLowerCase(), nameB = b.location.toLowerCase();
+  //   if (nameA < nameB) //sort string ascending
+  //    return -1;
+  //   if (nameA > nameB)
+  //    return 1;
+  //   return 0; //default return value (no sorting)
+  //  });
+
+  //  console.log(orderedData)
+
   useEffect(()=>{
     fetch('http://localhost:6001/listings')
     .then(resp => resp.json())
@@ -23,7 +34,7 @@ function App() {
   
   return (
     <div className="app">
-      <Header setSearchValue = {setSearchValue} searchValue = {searchValue}/>
+      <Header setSearchValue = {setSearchValue}/>
       <ListingsContainer listingsData = {displayedItems} removeFromDom = {removeFromDom}/>
     </div>
   );
